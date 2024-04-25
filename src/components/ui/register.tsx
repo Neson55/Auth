@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button"
 import {
   Form,
   FormControl,
-  
   FormField,
   FormItem,
   FormLabel,
@@ -19,8 +18,11 @@ const formSchema = z.object({
   email: z.string().min(2, {
     message: "Email must be at least 2 characters.",
   }).email({ message: "Field must be a valid email." }),
-  password: z.string().min(4, {
+ name: z.string().min(2, {
     message: "Password must be at least 2 characters.",
+  }),
+  password: z.string().min(4, {
+    message: "Password must be at least 4 characters.",
   }),
 
 })
@@ -56,6 +58,19 @@ export function Register() {
                 </FormItem>
               )}
             />
+             <FormField
+              control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Name</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Name" {...field} type="name" />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
             <FormField
               control={form.control}
               name="password"
@@ -69,7 +84,7 @@ export function Register() {
                 </FormItem>
               )}
             />
-            <Button type="submit" >Submit</Button>
+            <Button type="submit" >Register</Button>
           </form>
         </Form>
       )

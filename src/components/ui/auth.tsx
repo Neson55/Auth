@@ -69,7 +69,7 @@ export function Auth() {
                 </FormItem>
               )}
             />
-            <Button type="submit" >Submit</Button>
+            <Button type="submit" >Join</Button>
           </form>
         </Form>
       )
